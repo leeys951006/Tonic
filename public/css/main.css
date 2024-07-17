@@ -3,8 +3,85 @@
   padding: 0;
 }
 
-body {
-  width: 1179px;
-  height: 2556px;
+@media (max-width: 600px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #title {
+    display: flex;
+    background-color: blue;
+    width: 100vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
+  #tonic {
+    display: flex;
+    background-color: aqua;
+    width: 100vw;
+    height: 77vh;
+    justify-content: center;
+  }
+  
+  #addButton {
+    position: absolute;
+    bottom: 20vh;
+    background-color: red;
+    width: 70vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #bottombutton {
+    width: 100vw;
+    height: 13vh;
+    display: flex;
+  }
+  
+  #Management {
+    background-color: yellow;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #information {
+    background-color: red;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #shopping {
+    background-color: yellow;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #setting {
+    background-color: red;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
+
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  
+}
+
+@media (min-width: 1201px) {}

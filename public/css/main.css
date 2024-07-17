@@ -30,10 +30,10 @@
   
   #addButton {
     position: absolute;
-    bottom: 20vh;
+    bottom: 17vh;
     background-color: red;
-    width: 70vw;
-    height: 10vh;
+    width: 48vw;
+    height: 6vh;
     display: flex;
     align-items: center;
     justify-content: center;

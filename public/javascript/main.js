@@ -66,9 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
         profile: selectedProfile,
         unit: selectedUnit
       };
-      addTonicItem(tonicData);
-      saveTonicToLocalStorage(tonicData);
-      inputModal.style.display = 'none';
+      if (!isDuplicateTonic(tonicData)) {
+        addTonicItem(tonicData);
+        saveTonicToLocalStorage(tonicData);
+        inputModal.style.display = 'none';
+      } else {
+        alert('이미 등록된 영양제입니다.');
+      }
     } else {
       alert('양을 입력하세요.');
     }
@@ -128,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { name, details, intake, profile, unit } = tonicData;
     const tonicItem = document.createElement('div');
     tonicItem.className = 'tonic-item';
+    tonicItem.style.position = 'relative'; // 추가: 삭제 버튼의 위치 조정을 위해
 
     const title = document.createElement('div');
     title.className = 'tonic-title';
@@ -140,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const intakeDiv = document.createElement('div');
     intakeDiv.className = 'tonic-info';
-    intakeDiv.textContent = `내가 먹고 있는 양: ${intake}${unit}`;
+    intakeDiv.textContent = `내가 먹고 있는 양: ${intake} ${unit}`;
 
     const barDiv = document.createElement('div');
     barDiv.className = 'tonic-bar';
@@ -170,6 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     barDiv.appendChild(barInnerDiv);
 
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-tonic';
+    closeButton.textContent = '×'; // × 문자 사용
+    closeButton.addEventListener('click', () => {
+      tonicItem.remove();
+      removeTonicFromLocalStorage(name);
+    });
+
+    tonicItem.appendChild(closeButton);
     tonicItem.appendChild(title);
     tonicItem.appendChild(infoDiv);
     tonicItem.appendChild(intakeDiv);
@@ -188,4 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const tonics = JSON.parse(localStorage.getItem('tonics')) || [];
     tonics.forEach(tonicData => addTonicItem(tonicData));
   }
+
+  function removeTonicFromLocalStorage(name) {
+    let tonics = JSON.parse(localStorage.getItem('tonics')) || [];
+    tonics = tonics.filter(tonic => tonic.name !== name);
+    localStorage.setItem('tonics', JSON.stringify(tonics));
+  }
+
+  function isDuplicateTonic(newTonic) {
+    let tonics = JSON.parse(localStorage.getItem('tonics')) || [];
+    return tonics.some(tonic => tonic.name === newTonic.name);
+  }
+
 });
+

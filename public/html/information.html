@@ -9,13 +9,7 @@
 <body>
   <div id="root">
     <div id="title">영양분 정보</div>
-    <div id="Data">
-      <div id="profile"></div>
-      <div id="alert"></div>
-      <div id="healthData"></div>
-      <div id="darkmode"></div>
-      <div id="Language"></div>
-    </div>
+    <div id="Data" class="scrollable"></div>
     <div id="bottombutton">
       <div id="Management"><a href="/">영양제 관리</a></div>
       <div id="information"><a href="./information">영양분 정보</a></div>
@@ -23,6 +17,15 @@
       <div id="setting"><a href="./Setting">설정</a></div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="vitaminDetails"></div>
+    </div>
+  </div>
+
   <script src="../javascript/information.js"></script>
 </body>
 </html>

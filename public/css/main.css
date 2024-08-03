@@ -190,3 +190,39 @@ body, html {
   background-color: #ffc107;
   border-radius: 10px;
 }
+
+/* 기존 스타일 여기에 추가 */
+
+/* 기존 close 버튼 스타일 (예제) */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* tonic 아이템의 close 버튼 스타일 */
+.close-tonic {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #aaa;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-tonic:hover,
+.close-tonic:focus {
+  color: black;
+  text-decoration: none;
+}

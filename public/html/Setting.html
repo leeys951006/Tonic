@@ -10,16 +10,14 @@
   <div id="root">
     <div id="title">설정</div>
     <div id="Data">
-          <div id="profile">프로필 설정</div>
-          <div id="alert">영양제 복용 알림설정</div>
-          <div id="darkmode">다크모드 설정</div>
-          <div id="Language">언어 설정</div>
+      <div id="profile">프로필 설정</div>
+      <div id="Language">언어 설정</div>
     </div>
     <div id="bottombutton">
       <div id="Management"><a href="/">영양제 관리</a></div>
-      <div id="information"><a href="./information">영양분 정보</a></div>
-      <div id="shopping"><a href="./Shopping">영양제 쇼핑</a></div>
-      <div id="setting"><a href="./Setting">설정</a></div>
+      <div id="information"><a href="/information">영양분 정보</a></div>
+      <div id="shopping"><a href="/Shopping">영양제 쇼핑</a></div>
+      <div id="setting"><a href="/setting">설정</a></div>
     </div>
   </div>
 
@@ -35,11 +33,21 @@
     </div>
   </div>
 
-  <!-- Alert Modal -->
+  <!-- Language Modal -->
+  <div id="languageModal" class="modal">
+    <div class="modal-content">
+      <span class="closeLanguageModal">&times;</span>
+      <h2>언어 선택</h2>
+      <button class="languageOption" data-language="ko">한국어</button>
+      <button class="languageOption" data-language="en">영어</button>
+      <button class="languageOption" data-language="ja">일본어</button>
+      <button class="languageOption" data-language="zh">중국어</button>
+    </div>
+  </div>
+
   <div id="alertModal" class="modal">
     <div class="modal-content">
       <span class="closeAlertModal">&times;</span>
-      <h2>알림</h2>
       <p id="alertMessage"></p>
     </div>
   </div>

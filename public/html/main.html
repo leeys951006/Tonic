@@ -3,21 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>영양제 관리</title>
+  <title>Document</title>
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
   <div id="root">
     <div id="title">나의 영양 분석</div>
-    <div id="tonic">
-
-      <div id="addButton">영양제 추가</div>
-    </div>
+    <div id="tonic"></div>
+    <div id="addButton">영양제 추가</div>
     <div id="bottombutton">
-      <div id="Management">영양제 관리</div>
-      <div id="information">영양분 정보</div>
-      <div id="shopping">영양제 쇼핑</div>
-      <div id="setting">설정</div>
+      <div id="Management"><a href="/">영양제 관리</a></div>
+      <div id="information"><a href="./information">영양분 정보</a></div>
+      <div id="shopping"><a href="./Shopping">영양제 쇼핑</a></div>
+      <div id="setting"><a href="./Setting">설정</a></div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <input type="text" id="searchInput" placeholder="영양제 검색">
+      <div id="vitaminGrid" class="vitamin-grid"></div>
+    </div>
+  </div>
+
+  <!-- Input Modal -->
+  <div id="inputModal" class="modal">
+    <div class="modal-content">
+      <span class="closeInputModal">&times;</span>
+      <div id="vitaminDetails"></div>
+      <div>
+        <label for="intakeAmount">내가 먹고 있는 양:</label>
+        <input type="text" id="intakeAmount" placeholder="양을 입력하세요">
+        <label id="unitLabel" for="unitSelect">단위 선택:</label>
+        <select id="unitSelect">
+          <option value="IU">IU</option>
+          <option value="µg">µg</option>
+        </select>
+        <button id="registerButton">등록</button>
+      </div>
     </div>
   </div>
 

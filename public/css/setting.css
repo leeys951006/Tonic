@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+#title {
+  display: flex;
+  background-color: blue;
+  width: 100vw;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+}
+
+#Data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  width: 100vw;
+  height: 77vh;
+  padding: 20px;
+}
+
+#Data > div {
+  padding: 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#bottombutton {
+  width: 100vw;
+  height: 13vh;
+  display: flex;
+  background-color: #f0a500;
+}
+
+#bottombutton > div {
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #fff;
+}
+
+#bottombutton > div:last-child {
+  border-right: none;
+}
+
+#bottombutton a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 400px;
+}
+
+.closeProfileModal,
+.closeAlertModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeProfileModal:hover,
+.closeProfileModal:focus,
+.closeAlertModal:hover,
+.closeAlertModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profileOption {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.profileOption:hover {
+  background-color: #0056b3;
+}
+}

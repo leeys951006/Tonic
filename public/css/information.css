@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+#title {
+  display: flex;
+  background-color: blue;
+  width: 100vw;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+#Data {
+  display: flex;
+  background-color: aqua;
+  width: 100vw;
+  height: 77vh;
+  justify-content: center;
+}
+
+#bottombutton {
+  width: 100vw;
+  height: 13vh;
+  display: flex;
+}
+
+#Management {
+  background-color: yellow;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#information {
+  background-color: red;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#shopping {
+  background-color: yellow;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#setting {
+  background-color: red;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  /* 여기에 601px 이상 1200px 이하일 때의 스타일을 추가할 수 있습니다 */
+}
+
+@media (min-width: 1201px) {
+  /* 여기에 1201px 이상일 때의 스타일을 추가할 수 있습니다 */
+}

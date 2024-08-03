@@ -10,7 +10,7 @@ let db = new sqlite3.Database('tonic.db', (err) => {
 db.run(`CREATE TABLE IF NOT EXISTS tonic (
   id INTEGER PRIMARY KEY AUTOINCREMENT, 
   vitamin TEXT NOT NULL, 
-  group TEXT NOT NULL,
+  category TEXT NOT NULL,
   recommend TEXT NOT NULL
 )`, (err) => {
   if (err) {
@@ -18,7 +18,7 @@ db.run(`CREATE TABLE IF NOT EXISTS tonic (
   }
 });
 
-let insert = 'INSERT INTO tonic (vitamin, group, recommend) VALUES (?, ?, ?)';
+let insert = 'INSERT INTO tonic (vitamin, category, recommend) VALUES (?, ?, ?)';
 
 const vitamins = [
   ['비타민A', '성인 남성', '900 µg'],
@@ -56,9 +56,9 @@ const vitamins = [
   ['비타민C', '성인 여성', '75 mg'],
   ['비타민C', '아이들 4-8세', '25 mg'],
   ['비타민C', '아이들 9-13세', '45 mg'],
-  ['비타민D', '성인', '600-800 IU (15-20 µg)'],
-  ['비타민D', '아이들 4-8세', '600 IU (15 µg)'],
-  ['비타민D', '아이들 9-13세', '600 IU (15 µg)'],
+  ['비타민D', '성인', '600-800 IU or 15-20 µg'],
+  ['비타민D', '아이들 4-8세', '600 IU or 15 µg'],
+  ['비타민D', '아이들 9-13세', '600 IU or 15 µg'],
   ['비타민E', '성인', '15 mg'],
   ['비타민E', '아이들 4-8세', '7 mg'],
   ['비타민E', '아이들 9-13세', '11 mg'],

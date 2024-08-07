@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function changeLanguage(language) {
-    // 여기에 각 언어별 번역 데이터를 설정합니다.
     const translations = {
       ko: {
         title: '설정',
@@ -107,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // 페이지 내 텍스트 요소를 선택된 언어로 변경합니다.
     document.getElementById('title').textContent = translations[language].title;
     document.getElementById('profile').textContent = translations[language].profile;
     document.getElementById('Language').textContent = translations[language].language;
@@ -117,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setting').querySelector('a').textContent = translations[language].setting;
   }
 
-  // 페이지 로드 시 저장된 언어 설정이 있다면 해당 언어로 변경합니다.
   const savedLanguage = localStorage.getItem('selectedLanguage');
   if (savedLanguage) {
     changeLanguage(savedLanguage);

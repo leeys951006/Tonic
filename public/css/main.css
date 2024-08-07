@@ -8,6 +8,7 @@ body, html {
   width: 100%;
   height: 100%;
   font-family: Arial, sans-serif;
+  background-color: #fff8e1;
 }
 
 #root {
@@ -15,24 +16,26 @@ body, html {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #title {
   display: flex;
-  background-color: blue;
+  background-color: #fdd835;
   width: 100vw;
   height: 10vh;
   justify-content: center;
   align-items: center;
   font-size: 25px;
   color: white;
+  font-weight: bold;
 }
 
 #tonic {
   display: flex;
   flex-direction: column;
-  background-color: aqua;
+  background-color: #fff8e1;
   width: 100vw;
   height: 67vh;
   justify-content: flex-start;
@@ -47,25 +50,33 @@ body, html {
   align-items: center;
   width: 100vw;
   height: 10vh;
-  background-color: red;
+  background-color: #fdd835;
   color: white;
   font-size: 18px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addButton:hover {
+  background-color: #fbc02d;
 }
 
 #bottombutton {
   width: 100vw;
   height: 13vh;
   display: flex;
-  background-color: #f0a500;
+  background-color: #fdd835;
 }
 
 #bottombutton > div {
-  width: 25vw;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #fff;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-right: 1px solid #c6a700;
 }
 
 #bottombutton > div:last-child {
@@ -74,31 +85,32 @@ body, html {
 
 #bottombutton a {
   text-decoration: none;
-  color: black;
-  font-size: 14px;
-  text-align: center;
+  color: white;
 }
 
-/* 모달 스타일 */
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 600px;
-  background-color: #fefefe;
-  border: 1px solid #888;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  overflow-y: auto;
-  max-height: 80vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  width: 100%;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  max-height: 60vh; /* 세로 길이 제한 */
+  overflow-y: auto; /* 세로 스크롤 추가 */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .close, .closeInputModal {
@@ -106,12 +118,11 @@ body, html {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover, .close:focus, .closeInputModal:hover, .closeInputModal:focus {
   color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 #searchInput {
@@ -119,12 +130,14 @@ body, html {
   padding: 12px;
   margin-bottom: 20px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .vitamin-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* 가운데 정렬 */
+  justify-content: center;
   gap: 10px;
 }
 
@@ -141,6 +154,11 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.vitamin-item:hover {
+  background-color: #e0e0e0;
 }
 
 #vitaminDetails {
@@ -151,12 +169,10 @@ body, html {
   margin: 5px 0;
 }
 
-#unitLabel,
-#unitSelect {
+#unitLabel, #unitSelect {
   display: none;
 }
 
-/* 영양제 정보 스타일 */
 .tonic-item {
   display: flex;
   flex-direction: column;
@@ -166,6 +182,7 @@ body, html {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .tonic-title {
@@ -191,24 +208,6 @@ body, html {
   border-radius: 10px;
 }
 
-/* 기존 스타일 여기에 추가 */
-
-/* 기존 close 버튼 스타일 (예제) */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* tonic 아이템의 close 버튼 스타일 */
 .close-tonic {
   position: absolute;
   top: 5px;
@@ -221,8 +220,7 @@ body, html {
   cursor: pointer;
 }
 
-.close-tonic:hover,
-.close-tonic:focus {
+.close-tonic:hover, .close-tonic:focus {
   color: black;
   text-decoration: none;
 }

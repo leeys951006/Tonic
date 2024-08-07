@@ -1,6 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1;
 }
 
 #root {
@@ -8,43 +16,60 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #title {
   display: flex;
-  background-color: blue;
+  background-color: #fdd835;
   width: 100vw;
   height: 10vh;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  color: white;
+  font-weight: bold;
 }
 
 #Data {
   display: flex;
   flex-direction: column;
-  background-color: aqua;
+  background-color: #fff8e1;
   width: 100vw;
   height: 77vh;
-  overflow-y: auto; /* 사이드바 스크롤 추가 */
-  justify-content: flex-start; /* 요소를 위쪽에 정렬 */
+  overflow-y: auto;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
 #bottombutton {
   width: 100vw;
   height: 13vh;
   display: flex;
+  background-color: #fdd835;
 }
 
-#Management, #information, #shopping, #setting {
-  background-color: yellow;
-  width: 30vw;
+#bottombutton > div {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-right: 1px solid #c6a700;
 }
 
-/* 버튼 스타일 */
+#bottombutton > div:last-child {
+  border-right: none;
+}
+
+#bottombutton a {
+  text-decoration: none;
+  color: white;
+}
+
 .vitamin-button, .side-effect-button {
   display: block;
   width: 90%;
@@ -55,33 +80,35 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .vitamin-button:hover, .side-effect-button:hover {
   background-color: #e0e0e0;
 }
 
-/* 모달창 스타일 */
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; 
+  background-color: #fff;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
-  max-height: 70%; /* 최대 높이 설정 */
-  overflow-y: auto; /* 세로 스크롤 */
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -89,11 +116,73 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
+  color: black;
+}
+
+#vitaminDetails {
+  margin-bottom: 15px;
+}
+
+#vitaminDetails p {
+  margin: 5px 0;
+}
+
+#unitLabel, #unitSelect {
+  display: none;
+}
+
+.tonic-item {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.tonic-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tonic-info {
+  font-size: 14px;
+}
+
+.tonic-bar {
+  position: relative;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.tonic-bar-inner {
+  height: 100%;
+  background-color: #ffc107;
+  border-radius: 10px;
+}
+
+.close-tonic {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #aaa;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-tonic:hover, .close-tonic:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
 }

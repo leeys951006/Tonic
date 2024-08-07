@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { name, details, intake, profile, unit } = tonicData;
     const tonicItem = document.createElement('div');
     tonicItem.className = 'tonic-item';
-    tonicItem.style.position = 'relative'; // 추가: 삭제 버튼의 위치 조정을 위해
+    tonicItem.style.position = 'relative';
 
     const title = document.createElement('div');
     title.className = 'tonic-title';
@@ -153,16 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let recommended;
     if (name === '비타민D') {
       if (unit === 'IU') {
-        recommended = 600; // 비타민 D의 IU 기준 값을 설정합니다.
+        recommended = 600;
       } else {
-        recommended = 15; // 비타민 D의 µg 기준 값을 설정합니다.
+        recommended = 15;
       }
     } else {
       const recommendValue = profileData.recommend.split(' ')[0];
       const recommendUnit = profileData.recommend.split(' ')[1];
       recommended = parseFloat(recommendValue);
 
-      // 비타민 및 미네랄의 단위를 데이터베이스의 값과 일치시킵니다.
       intakeDiv.textContent = `내가 먹고 있는 양: ${intake} ${recommendUnit}`;
     }
 
@@ -177,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeButton = document.createElement('button');
     closeButton.className = 'close-tonic';
-    closeButton.textContent = '×'; // × 문자 사용
+    closeButton.textContent = '×';
     closeButton.addEventListener('click', () => {
       tonicItem.remove();
       removeTonicFromLocalStorage(name);
@@ -213,6 +212,4 @@ document.addEventListener('DOMContentLoaded', () => {
     let tonics = JSON.parse(localStorage.getItem('tonics')) || [];
     return tonics.some(tonic => tonic.name === newTonic.name);
   }
-
 });
-

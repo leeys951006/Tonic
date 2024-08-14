@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.addEventListener('input', (event) => {
     const query = event.target.value.toLowerCase();
     const vitaminItems = document.querySelectorAll('.vitamin-item');
-    vitaminItems.forEach(item => {
+    vitaminItems.forEach((item) => {
       const name = item.textContent.toLowerCase();
       if (name.includes(query)) {
         item.style.display = 'flex';
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         details: selectedVitaminDetails,
         intake: intakeValue,
         profile: selectedProfile,
-        unit: selectedUnit
+        unit: selectedUnit,
       };
       if (!isDuplicateTonic(tonicData)) {
         addTonicItem(tonicData);
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadVitamins() {
     fetch('/api/tonics')
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data.message === 'success') {
           vitaminGrid.innerHTML = '';
           const namesAdded = new Set();
-          data.data.forEach(vitamin => {
+          data.data.forEach((vitamin) => {
             if (!namesAdded.has(vitamin.vitamin)) {
               const vitaminElement = document.createElement('div');
               vitaminElement.className = 'vitamin-item';
@@ -97,22 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       })
-      .catch(error => console.error('Error:', error));
+      .catch((error) => console.error('Error:', error));
   }
 
   function showVitaminDetails(vitamin, data) {
     const selectedProfile = localStorage.getItem('selectedProfile');
-    selectedVitaminDetails = data.filter(item => item.vitamin === vitamin);
+    selectedVitaminDetails = data.filter((item) => item.vitamin === vitamin);
 
     let filteredData;
     if (selectedProfile === '성인 남성' || selectedProfile === '성인 여성') {
-      filteredData = selectedVitaminDetails.filter(item => item.category === selectedProfile || item.category === '성인');
+      filteredData = selectedVitaminDetails.filter((item) => item.category === selectedProfile || item.category === '성인');
     } else {
-      filteredData = selectedVitaminDetails.filter(item => item.category === selectedProfile);
+      filteredData = selectedVitaminDetails.filter((item) => item.category === selectedProfile);
     }
 
     vitaminDetails.innerHTML = `<h2>${vitamin}</h2>`;
-    filteredData.forEach(item => {
+    filteredData.forEach((item) => {
       vitaminDetails.innerHTML += `<p>${item.category}: ${item.recommend}</p>`;
     });
 
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const infoDiv = document.createElement('div');
     infoDiv.className = 'tonic-info';
-    const profileData = details.find(item => item.category === profile) || details.find(item => item.category === '성인');
+    const profileData = details.find((item) => item.category === profile) || details.find((item) => item.category === '성인');
     infoDiv.textContent = `${profileData.category}: ${profileData.recommend}`;
 
     const intakeDiv = document.createElement('div');
@@ -199,17 +199,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadTonicsFromLocalStorage() {
     const tonics = JSON.parse(localStorage.getItem('tonics')) || [];
-    tonics.forEach(tonicData => addTonicItem(tonicData));
+    tonics.forEach((tonicData) => addTonicItem(tonicData));
   }
 
   function removeTonicFromLocalStorage(name) {
     let tonics = JSON.parse(localStorage.getItem('tonics')) || [];
-    tonics = tonics.filter(tonic => tonic.name !== name);
+    tonics = tonics.filter((tonic) => tonic.name !== name);
     localStorage.setItem('tonics', JSON.stringify(tonics));
   }
 
   function isDuplicateTonic(newTonic) {
     let tonics = JSON.parse(localStorage.getItem('tonics')) || [];
-    return tonics.some(tonic => tonic.name === newTonic.name);
+    return tonics.some((tonic) => tonic.name === newTonic.name);
+  }
+
+  function changeLanguage(language) {
+    const translations = {
+      ko: {
+        title: '나의 영양 분석',
+        addButton: '영양제 추가',
+        management: '영양제 관리',
+        information: '영양분 정보',
+        shopping: '영양제 쇼핑',
+        setting: '설정',
+      },
+      en: {
+        title: 'My Nutrient Analysis',
+        addButton: 'Add Supplement',
+        management: 'Supplement Management',
+        information: 'Nutrient Information',
+        shopping: 'Supplement Shopping',
+        setting: 'Settings',
+      },
+      ja: {
+        title: '私の栄養分析',
+        addButton: 'サプリメントを追加',
+        management: 'サプリメント管理',
+        information: '栄養情報',
+        shopping: 'サプリメントショッピング',
+        setting: '設定',
+      },
+      zh: {
+        title: '我的营养分析',
+        addButton: '添加补品',
+        management: '补品管理',
+        information: '营养信息',
+        shopping: '补品购物',
+        setting: '设置',
+      },
+    };
+
+    document.getElementById('title').textContent = translations[language].title;
+    document.getElementById('addButton').textContent = translations[language].addButton;
+    document.getElementById('Management').querySelector('a').textContent = translations[language].management;
+    document.getElementById('information').querySelector('a').textContent = translations[language].information;
+    document.getElementById('shopping').querySelector('a').textContent = translations[language].shopping;
+    document.getElementById('setting').querySelector('a').textContent = translations[language].setting;
+  }
+
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  if (savedLanguage) {
+    changeLanguage(savedLanguage);
   }
 });

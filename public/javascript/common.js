@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setting: '설정',
         addButton: '영양제 추가',
         searchPlaceholder: '영양제 검색',
-        registerButton: '등록'
+        registerButton: '등록',
       },
       en: {
         title: 'Settings',
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setting: 'Settings',
         addButton: 'Add Supplement',
         searchPlaceholder: 'Search Supplement',
-        registerButton: 'Register'
+        registerButton: 'Register',
       },
       ja: {
         title: '設定',
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setting: '設定',
         addButton: 'サプリメント追加',
         searchPlaceholder: 'サプリメント検索',
-        registerButton: '登録'
+        registerButton: '登録',
       },
       zh: {
         title: '设置',
@@ -47,13 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setting: '设置',
         addButton: '添加补品',
         searchPlaceholder: '搜索补品',
-        registerButton: '注册'
-      }
+        registerButton: '注册',
+      },
     };
 
-    if (document.getElementById('title')) {
-      document.getElementById('title').textContent = translations[language].title;
-    }
     if (document.getElementById('profile')) {
       document.getElementById('profile').textContent = translations[language].profile;
     }

@@ -4,11 +4,13 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #fff8e1;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fffde7; /* 연한 노란색 배경 */
+  color: #333;
 }
 
 #root {
@@ -16,26 +18,28 @@ body, html {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 #title {
   display: flex;
-  background-color: #fdd835;
+  background-color: #fbc02d; /* 연한 노란색 */
   width: 100vw;
   height: 10vh;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 28px;
   color: white;
-  font-weight: bold;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 #Data {
   display: flex;
   flex-direction: column;
-  background-color: #fff8e1;
+  background-color: #fffde7;
   width: 100vw;
   height: 77vh;
   overflow-y: auto;
@@ -47,7 +51,8 @@ body, html {
   width: 100vw;
   height: 13vh;
   display: flex;
-  background-color: #fdd835;
+  background-color: #fbc02d; /* 연한 노란색 */
+  border-top: 1px solid #f57f17; /* 상단에 선 추가 */
 }
 
 #bottombutton > div {
@@ -56,13 +61,18 @@ body, html {
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 14px;
-  font-weight: bold;
-  border-right: 1px solid #c6a700;
+  font-size: 16px;
+  font-weight: 500;
+  border-right: 1px solid #f57f17; /* 더 진한 노란색으로 경계선 */
+  transition: background-color 0.3s ease;
 }
 
 #bottombutton > div:last-child {
   border-right: none;
+}
+
+#bottombutton > div:hover {
+  background-color: #f9a825; /* 호버 시 진한 노란색으로 변경 */
 }
 
 #bottombutton a {
@@ -70,22 +80,25 @@ body, html {
   color: white;
 }
 
-.vitamin-button, .side-effect-button {
+.vitamin-button,
+.side-effect-button {
   display: block;
   width: 90%;
   margin: 10px auto;
-  padding: 10px;
+  padding: 12px;
   font-size: 18px;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.vitamin-button:hover, .side-effect-button:hover {
-  background-color: #e0e0e0;
+.vitamin-button:hover,
+.side-effect-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
 }
 
 .modal {
@@ -97,30 +110,33 @@ body, html {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #ffffff;
   margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 25px;
+  border: 1px solid #ccc;
   width: 80%;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  max-height: 60vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .close {
-  color: #aaa;
+  color: #bbb;
   float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.close:hover, .close:focus {
-  color: black;
+.close:hover,
+.close:focus {
+  color: #000;
 }
 
 #vitaminDetails {
@@ -131,7 +147,8 @@ body, html {
   margin: 5px 0;
 }
 
-#unitLabel, #unitSelect {
+#unitLabel,
+#unitSelect {
   display: none;
 }
 
@@ -139,12 +156,18 @@ body, html {
   display: flex;
   flex-direction: column;
   width: 90%;
-  padding: 10px;
+  padding: 15px;
   margin: 10px 0;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tonic-item:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-5px);
 }
 
 .tonic-title {
@@ -166,7 +189,7 @@ body, html {
 
 .tonic-bar-inner {
   height: 100%;
-  background-color: #ffc107;
+  background-color: #fbc02d; /* 연한 노란색으로 변경 */
   border-radius: 10px;
 }
 
@@ -174,7 +197,7 @@ body, html {
   position: absolute;
   top: 5px;
   right: 5px;
-  color: #aaa;
+  color: #bbb;
   background: transparent;
   border: none;
   font-size: 28px;
@@ -182,7 +205,8 @@ body, html {
   cursor: pointer;
 }
 
-.close-tonic:hover, .close-tonic:focus {
+.close-tonic:hover,
+.close-tonic:focus {
   color: black;
   text-decoration: none;
 }

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  profileOptions.forEach(option => {
+  profileOptions.forEach((option) => {
     option.addEventListener('click', (event) => {
       selectedProfile = event.target.getAttribute('data-profile');
       localStorage.setItem('selectedProfile', selectedProfile);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  languageOptions.forEach(option => {
+  languageOptions.forEach((option) => {
     option.addEventListener('click', (event) => {
       const selectedLanguage = event.target.getAttribute('data-language');
       localStorage.setItem('selectedLanguage', selectedLanguage);
@@ -69,46 +69,36 @@ document.addEventListener('DOMContentLoaded', () => {
   function changeLanguage(language) {
     const translations = {
       ko: {
-        title: '설정',
-        profile: '프로필 설정',
-        language: '언어 설정',
+        title: '영양제 쇼핑',
         management: '영양제 관리',
         information: '영양분 정보',
         shopping: '영양제 쇼핑',
-        setting: '설정'
+        setting: '설정',
       },
       en: {
-        title: 'Settings',
-        profile: 'Profile Settings',
-        language: 'Language Settings',
+        title: 'Supplement Shopping',
         management: 'Supplement Management',
         information: 'Nutrient Information',
         shopping: 'Supplement Shopping',
-        setting: 'Settings'
+        setting: 'Settings',
       },
       ja: {
-        title: '設定',
-        profile: 'プロフィール設定',
-        language: '言語設定',
+        title: 'サプリメントショッピング',
         management: 'サプリメント管理',
         information: '栄養情報',
         shopping: 'サプリメントショッピング',
-        setting: '設定'
+        setting: '設定',
       },
       zh: {
-        title: '设置',
-        profile: '个人资料设置',
-        language: '语言设置',
+        title: '补品购物',
         management: '补品管理',
         information: '营养信息',
         shopping: '补品购物',
-        setting: '设置'
-      }
+        setting: '设置',
+      },
     };
 
     document.getElementById('title').textContent = translations[language].title;
-    document.getElementById('profile').textContent = translations[language].profile;
-    document.getElementById('Language').textContent = translations[language].language;
     document.getElementById('Management').querySelector('a').textContent = translations[language].management;
     document.getElementById('information').querySelector('a').textContent = translations[language].information;
     document.getElementById('shopping').querySelector('a').textContent = translations[language].shopping;
